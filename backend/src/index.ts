@@ -63,7 +63,7 @@ app.use("/api/my-bookings", bookingRoutes);
 app.use("/api/payment", paymentRoutes);
 
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+  res.sendFile(path.join(process.cwd(),'client','dist','index.html'));
 });
 
 app.listen(7000, () => {
