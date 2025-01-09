@@ -53,7 +53,7 @@ app.use(
 
 
 
-app.use(express.static(path.join(process.cwd(),'frontend','dist')));
+app.use(express.static(path.join(process.cwd(),'https://sparkly-brioche-d09a09.netlify.app/')));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -63,7 +63,7 @@ app.use("/api/my-bookings", bookingRoutes);
 app.use("/api/payment", paymentRoutes);
 
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(process.cwd(),'frontend','dist','index.html'));
+  res.sendFile(path.join(process.cwd(),'https://sparkly-brioche-d09a09.netlify.app/'));
 });
 
 app.listen(7000, () => {
