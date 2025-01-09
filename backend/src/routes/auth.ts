@@ -46,6 +46,7 @@ router.post(
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 86400000,
+        domain:"https://sparkly-brioche-d09a09.netlify.app/"
       });
       res.status(200).json({ userId: user._id });
     } catch (error) {
