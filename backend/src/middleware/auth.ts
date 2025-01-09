@@ -31,7 +31,7 @@ declare global {
 //   }
 // };
 
-// export default verifyToken;
+
 
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
@@ -59,3 +59,4 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+export default verifyToken;
