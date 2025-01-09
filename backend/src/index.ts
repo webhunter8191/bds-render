@@ -53,7 +53,7 @@ app.use(
 
 
 
-app.use(express.static(path.join(process.cwd(),'Frontend','dist','index.html')));
+app.use(express.static(path.join(process.cwd(),'Frontend','dist')));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
