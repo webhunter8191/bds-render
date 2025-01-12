@@ -31,21 +31,21 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.options(
-  "*",
-  cors({
-    origin: ["https://bds-render-1.onrender.com",],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-    preflightContinue: true,
-  })
-);
+// app.options(
+//   "*",
+//   cors({
+//     origin: ["https://bds-render-1.onrender.com",],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//     preflightContinue: true,
+//   })
+// );
 app.use(
   cors({
     origin: ["https://bds-render-1.onrender.com", ],
     methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "Set-Cookie"],
     credentials: true,
     maxAge: 86400,
     
