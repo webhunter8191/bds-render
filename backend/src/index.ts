@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.options(
   "*",
   cors({
-    origin: ["https://sparkly-brioche-d09a09.netlify.app",],
+    origin: ["https://bds-render-1.onrender.com",],
     methods: ["POST", "GET", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -43,7 +43,7 @@ app.options(
 );
 app.use(
   cors({
-    origin: ["https://sparkly-brioche-d09a09.netlify.app", ],
+    origin: ["https://bds-render-1.onrender.com", ],
     methods: ["POST", "GET", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
