@@ -111,9 +111,9 @@ router.post(
       res.cookie("auth_token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "none",
         maxAge: 86400000, // 1 day
-        domain:"https://sparkly-brioche-d09a09.netlify.app"
+        // domain:"https://sparkly-brioche-d09a09.netlify.app"
       });
 
       res.status(200).json({ userId: user._id });
