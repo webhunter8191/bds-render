@@ -113,7 +113,7 @@ router.post(
         secure: process.env.NODE_ENV === "production",
         sameSite: "none",
         maxAge: 86400000, // 1 day
-        domain: process.env.FRONTEND_URL
+        domain: process.env.FRONTEND_URL as string
       });
 
       res.status(200).json({ userId: user._id });

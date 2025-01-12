@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 // );
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL as string,
     credentials: true,
     methods: ["POST", "GET", "PUT", "DELETE"],
     // allowedHeaders: ["Content-Type", "Authorization"],
