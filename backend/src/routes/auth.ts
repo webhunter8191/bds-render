@@ -113,7 +113,7 @@ router.post(
         secure: process.env.NODE_ENV === "production",
         sameSite: "none",
         maxAge: 86400000, // 1 day
-        domain:"https://bds-render-1.onrender.com"
+        // domain:"https://bds-render-1.onrender.com"
       });
 
       res.status(200).json({ userId: user._id });
@@ -126,7 +126,7 @@ router.post(
 
 router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
   console.log("Validated Token User:", { userId: req.userId, isAdmin: req.isAdmin });
-  res.status(200).json({ userId: req.userId, isAdmin: req.isAdmin });
+  res.status(200).send({ userId: req.userId, isAdmin: req.isAdmin });
 });
 
 router.post("/logout", (req: Request, res: Response) => {

@@ -43,12 +43,8 @@ app.use(express.urlencoded({ extended: true }));
 // );
 app.use(
   cors({
-    origin: ["https://bds-render-1.onrender.com", ],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "authorization", "Set-Cookie"],
+    origin: process.env.FRONTEND_URL,
     credentials: true,
-    maxAge: 86400000,
-    
   })
 );
 
