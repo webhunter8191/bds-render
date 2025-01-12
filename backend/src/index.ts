@@ -45,9 +45,9 @@ app.use(
   cors({
     origin: ["https://bds-render-1.onrender.com", ],
     methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "Set-Cookie"],
+    allowedHeaders: ["Content-Type", "authorization", "Set-Cookie"],
     credentials: true,
-    maxAge: 86400,
+    maxAge: 86400000,
     
   })
 );
