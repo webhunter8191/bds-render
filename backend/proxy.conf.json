@@ -1,0 +1,10 @@
+{
+    "/api/*": {
+        "target": "https://bds-render-1.onrender.com",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}
