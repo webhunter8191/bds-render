@@ -109,11 +109,11 @@ router.post(
       );
 
       res.cookie("auth_token", token, {
-        httpOnly: false,
+        httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "none",
         maxAge: 86400000, // 1 day
-        domain: process.env.FRONTEND_URL as string
+        domain: process.env.FRONTEND_URL 
       });
 
       res.status(200).json({ userId: user._id });
