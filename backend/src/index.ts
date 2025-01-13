@@ -48,6 +48,7 @@ app.use(
     methods: ["POST", "GET", "PUT", "DELETE"],
     // allowedHeaders: ["Content-Type", "Authorization"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    
    
   })
 );
