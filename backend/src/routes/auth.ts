@@ -75,6 +75,7 @@ import User from "../models/user";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import verifyToken from "../middleware/auth";
+import path from "path";
 
 const router = express.Router();
 
@@ -114,7 +115,8 @@ router.post(
         secure: process.env.NODE_ENV === "production",
         sameSite: "none",
         maxAge: 86400000, // 1 day
-        domain: process.env.FRONTEND_URL 
+        // domain: process.env.FRONTEND_URL ,
+        path : '/'
       });
 
       res.status(200).json({ userId: user._id });
