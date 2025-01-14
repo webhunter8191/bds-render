@@ -34,6 +34,35 @@ declare global {
 
 
 
+// const verifyToken = (req: Request, res: Response, next: NextFunction) => {
+//   const token = req.cookies["auth_token"];
+//   if (!token) {
+//     console.error("No token provided in cookies");
+//     return res.status(403).json({ message: "Access Denied, No token provided" });
+//   }
+
+//   console.log("Received Token:", token);
+
+//   try {
+//     const decoded = jwt.verify(
+//       token,
+//       process.env.JWT_SECRET_KEY as string
+//     ) as JwtPayload;
+//     console.log("Decoded Token:", decoded);
+
+//     req.userId = decoded.userId;
+//     req.isAdmin = decoded.isAdmin !== undefined ? decoded.isAdmin : false;
+//     next();
+//   } catch (error) {
+//     // console.error("Token verification failed:", error.message);
+//     return res.status(401).json({ message: "Invalid token" });
+//   }
+// };
+
+// export default verifyToken;
+
+
+
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const token = req.cookies["auth_token"];
   if (!token) {
@@ -41,20 +70,22 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     return res.status(403).json({ message: "Access Denied, No token provided" });
   }
 
-  console.log("Received Token:", token);
-
   try {
     const decoded = jwt.verify(
       token,
       process.env.JWT_SECRET_KEY as string
     ) as JwtPayload;
-    console.log("Decoded Token:", decoded);
+
+    if (!decoded || !decoded.userId) {
+      console.error("Invalid token payload");
+      return res.status(401).json({ message: "Invalid token payload" });
+    }
 
     req.userId = decoded.userId;
-    req.isAdmin = decoded.isAdmin !== undefined ? decoded.isAdmin : false;
+    req.isAdmin = decoded.isAdmin || false;
     next();
-  } catch (error) {
-    // console.error("Token verification failed:", error.message);
+  } catch (error: any) {
+    console.error("Token verification failed:", error.message);
     return res.status(401).json({ message: "Invalid token" });
   }
 };
