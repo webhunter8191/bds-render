@@ -56,7 +56,7 @@ app.use(
 
 
 // app.use(express.static(path.join(process.cwd(),'https://sparkly-brioche-d09a09.netlify.app/')));
-app.use("/",)
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
