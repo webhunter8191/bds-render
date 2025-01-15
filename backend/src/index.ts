@@ -55,7 +55,7 @@ app.use(
 
 
 
-// app.use(express.static(path.join(process.cwd(),'https://sparkly-brioche-d09a09.netlify.app/')));
+app.use(express.static(path.join(__dirname,"../../frontend/dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
